@@ -1,0 +1,109 @@
+{
+  "_notice": "STARTER CORPUS. General self-care information written for this project. It has NOT been clinically reviewed. Replace or review with vetted sources (for example national treatment guidelines, with a named clinician reviewer) before any real-world public launch. Contains no drug names or doses on purpose.",
+  "guidelines": [
+    {
+      "id": "fever-general",
+      "title": "Fever: general care",
+      "source": "MedVani starter corpus (unreviewed)",
+      "keywords": ["fever", "high fever", "temperature", "hot body", "feverish"],
+      "en": "For a fever, rest, drink plenty of fluids and wear light clothing. Check the temperature with a thermometer if you have one. See a doctor if the fever lasts more than 3 days, is very high, comes back repeatedly, or if the person is a baby, elderly, pregnant, or has a long-term illness. Do not take antibiotics or other medicines without a doctor's advice.",
+      "hi": "बुखार में आराम करें, खूब तरल पदार्थ पिएँ और हल्के कपड़े पहनें। यदि थर्मामीटर हो तो तापमान जाँचें। यदि बुखार 3 दिन से अधिक रहे, बहुत तेज़ हो, बार-बार लौटे, या मरीज़ शिशु, बुज़ुर्ग, गर्भवती या किसी पुरानी बीमारी से ग्रस्त हो तो डॉक्टर को दिखाएँ। डॉक्टर की सलाह के बिना एंटीबायोटिक या अन्य दवाएँ न लें।"
+    },
+    {
+      "id": "fever-headache-warning",
+      "title": "Fever with severe headache: warning signs",
+      "source": "MedVani starter corpus (unreviewed)",
+      "keywords": ["fever", "severe headache", "headache and fever", "high fever headache", "sensitive to light", "vomiting"],
+      "en": "Fever with a severe headache should be checked by a doctor soon. Go to a hospital immediately if there is also a stiff neck, confusion or unusual sleepiness, a rash, a seizure, vomiting that does not stop, or discomfort from bright light. These can be signs of a serious infection of the brain or its lining.",
+      "hi": "तेज़ सिरदर्द के साथ बुखार हो तो जल्द डॉक्टर से जाँच कराएँ। यदि साथ में गर्दन में अकड़न, भ्रम या असामान्य नींद, दाने, दौरा, लगातार उल्टी, या तेज़ रोशनी से तकलीफ़ हो तो तुरंत अस्पताल जाएँ। ये दिमाग़ या उसकी झिल्ली के गंभीर संक्रमण के संकेत हो सकते हैं।"
+    },
+    {
+      "id": "headache-general",
+      "title": "Headache: general care",
+      "source": "MedVani starter corpus (unreviewed)",
+      "keywords": ["headache", "head pain", "migraine", "tension headache"],
+      "en": "For a common headache, rest in a quiet, dim room, drink water, eat regular meals and try to sleep enough. Reduce screen time. See a doctor if headaches are sudden and very severe, keep getting worse, wake you from sleep, follow a head injury, or come with weakness, vision changes or confusion.",
+      "hi": "सामान्य सिरदर्द में शांत, कम रोशनी वाले कमरे में आराम करें, पानी पिएँ, समय पर खाना खाएँ और पर्याप्त नींद लें। स्क्रीन का उपयोग कम करें। यदि सिरदर्द अचानक बहुत तेज़ हो, लगातार बढ़ता जाए, नींद से जगा दे, सिर की चोट के बाद हो, या कमज़ोरी, नज़र में बदलाव या भ्रम के साथ हो तो डॉक्टर को दिखाएँ।"
+    },
+    {
+      "id": "cough-cold",
+      "title": "Cough and common cold",
+      "source": "MedVani starter corpus (unreviewed)",
+      "keywords": ["cough", "cold", "runny nose", "phlegm", "congestion", "sneezing"],
+      "en": "Most coughs and colds get better on their own in about a week. Rest, drink warm fluids and gargle with warm salt water. Wash hands often and cover your mouth when coughing. See a doctor if the cough lasts more than 2 to 3 weeks, you cough up blood, you have a high fever, or breathing becomes fast or difficult.",
+      "hi": "अधिकतर खाँसी-जुकाम लगभग एक हफ़्ते में अपने आप ठीक हो जाते हैं। आराम करें, गुनगुने तरल पिएँ और गुनगुने नमक के पानी से गरारे करें। हाथ बार-बार धोएँ और खाँसते समय मुँह ढकें। यदि खाँसी 2-3 हफ़्ते से अधिक रहे, खून आए, तेज़ बुखार हो, या साँस तेज़ या मुश्किल हो जाए तो डॉक्टर को दिखाएँ।"
+    },
+    {
+      "id": "pneumonia-warning",
+      "title": "Cough with fever: possible chest infection",
+      "source": "MedVani starter corpus (unreviewed)",
+      "keywords": ["cough", "fever", "chest infection", "pneumonia", "fast breathing", "phlegm", "cough and fever"],
+      "en": "A cough with fever that lasts more than 3 days, or that gets worse after you seemed to be improving, can mean a chest infection such as pneumonia. See a doctor soon for a check-up. Seek urgent care if breathing is fast or difficult, lips look bluish, the chest pulls in with each breath, or the person is too weak to eat or drink.",
+      "hi": "खाँसी के साथ बुखार 3 दिन से अधिक रहे, या ठीक होने के बाद फिर बिगड़ जाए, तो यह निमोनिया जैसे छाती के संक्रमण का संकेत हो सकता है। जल्द डॉक्टर से जाँच कराएँ। यदि साँस तेज़ या मुश्किल हो, होंठ नीले दिखें, हर साँस के साथ छाती अंदर धँसे, या मरीज़ खाने-पीने लायक न रहे तो तुरंत इलाज लें।"
+    },
+    {
+      "id": "sore-throat",
+      "title": "Sore throat",
+      "source": "MedVani starter corpus (unreviewed)",
+      "keywords": ["sore throat", "throat pain", "painful swallowing", "throat infection"],
+      "en": "For a sore throat, drink warm fluids, gargle with warm salt water and rest your voice. See a doctor if it lasts more than a week, you cannot swallow or open your mouth fully, you drool, or you have a high fever or a rash.",
+      "hi": "गले में खराश में गुनगुने तरल पिएँ, गुनगुने नमक के पानी से गरारे करें और आवाज़ को आराम दें। यदि यह एक हफ़्ते से अधिक रहे, निगलने या मुँह खोलने में दिक्कत हो, लार टपके, या तेज़ बुखार या दाने हों तो डॉक्टर को दिखाएँ।"
+    },
+    {
+      "id": "diarrhoea",
+      "title": "Diarrhoea: prevent dehydration",
+      "source": "MedVani starter corpus (unreviewed)",
+      "keywords": ["diarrhoea", "diarrhea", "loose motions", "loose stools", "watery stools", "dehydration", "ORS"],
+      "en": "With diarrhoea the main danger is losing too much water. Keep drinking oral rehydration solution (ORS) in small, frequent sips, along with safe water and normal food. Wash hands with soap and drink only clean water. See a doctor if there is blood in the stool, high fever, severe stomach pain, signs of dehydration (very dry mouth, no urine for 8 hours, sunken eyes, extreme weakness), or if a baby or elderly person is affected.",
+      "hi": "दस्त में सबसे बड़ा ख़तरा शरीर में पानी की कमी है। ओआरएस (ORS) का घोल थोड़ा-थोड़ा करके बार-बार पिएँ, साथ में साफ़ पानी और सामान्य भोजन लें। साबुन से हाथ धोएँ और केवल साफ़ पानी पिएँ। यदि मल में खून हो, तेज़ बुखार हो, पेट में बहुत दर्द हो, पानी की कमी के लक्षण हों (मुँह बहुत सूखा, 8 घंटे से पेशाब नहीं, आँखें धँसी, अत्यधिक कमज़ोरी), या शिशु या बुज़ुर्ग प्रभावित हों तो डॉक्टर को दिखाएँ।"
+    },
+    {
+      "id": "vomiting",
+      "title": "Vomiting",
+      "source": "MedVani starter corpus (unreviewed)",
+      "keywords": ["vomiting", "nausea", "throwing up", "vomit"],
+      "en": "After vomiting, rest the stomach for a short while, then take small sips of water or ORS. Slowly return to light food. See a doctor if vomiting lasts more than a day, you cannot keep any fluids down, you see blood or green fluid, or you also have severe stomach pain or a severe headache.",
+      "hi": "उल्टी के बाद पेट को थोड़ी देर आराम दें, फिर पानी या ओआरएस के छोटे घूँट लें। धीरे-धीरे हल्का भोजन शुरू करें। यदि उल्टी एक दिन से अधिक चले, कोई तरल न टिके, खून या हरा तरल दिखे, या पेट में तेज़ दर्द या तेज़ सिरदर्द भी हो तो डॉक्टर को दिखाएँ।"
+    },
+    {
+      "id": "stomach-pain",
+      "title": "Stomach pain",
+      "source": "MedVani starter corpus (unreviewed)",
+      "keywords": ["stomach pain", "abdominal pain", "belly pain", "tummy ache", "gas", "acidity"],
+      "en": "Mild stomach pain often settles with rest, light food and enough water. Avoid very oily or spicy food. Get medical help promptly if the pain is severe, keeps getting worse, is on the lower right side, comes with fever, repeated vomiting, a hard swollen belly, or black or bloody stools.",
+      "hi": "हल्का पेट दर्द अक्सर आराम, हल्के भोजन और पर्याप्त पानी से ठीक हो जाता है। बहुत तैलीय या मसालेदार भोजन से बचें। यदि दर्द तेज़ हो, बढ़ता जाए, पेट के निचले दाएँ हिस्से में हो, बुखार, बार-बार उल्टी, कड़ा सूजा हुआ पेट, या काला या खूनी मल हो तो तुरंत डॉक्टर को दिखाएँ।"
+    },
+    {
+      "id": "body-ache-fatigue",
+      "title": "Body ache, weakness and tiredness",
+      "source": "MedVani starter corpus (unreviewed)",
+      "keywords": ["body ache", "weakness", "fatigue", "tired", "tiredness", "dizziness", "dizzy"],
+      "en": "Body ache, weakness and tiredness often follow a viral illness, poor sleep or not drinking enough. Rest, drink fluids and eat regular meals. See a doctor if weakness lasts more than a week, you faint, feel dizzy on standing, lose weight without trying, or the weakness affects one side of the body.",
+      "hi": "बदन दर्द, कमज़ोरी और थकान अक्सर वायरल बीमारी, कम नींद या कम पानी पीने के बाद होती है। आराम करें, तरल पिएँ और समय पर भोजन करें। यदि कमज़ोरी एक हफ़्ते से अधिक रहे, बेहोशी आए, खड़े होने पर चक्कर आए, बिना कारण वज़न घटे, या कमज़ोरी शरीर के एक तरफ़ हो तो डॉक्टर को दिखाएँ।"
+    },
+    {
+      "id": "rash-itching",
+      "title": "Skin rash and itching",
+      "source": "MedVani starter corpus (unreviewed)",
+      "keywords": ["rash", "itching", "skin rash", "red spots", "hives", "allergy"],
+      "en": "Keep the skin clean and dry, avoid scratching and avoid anything that seems to trigger the rash. See a doctor if the rash spreads quickly, is painful, blisters, comes with fever, or lasts more than a few days. Seek emergency care if there is swelling of the face or lips, or trouble breathing.",
+      "hi": "त्वचा को साफ़ और सूखा रखें, खुजलाने से बचें और जिस चीज़ से दाने बढ़ते लगें उससे दूर रहें। यदि दाने तेज़ी से फैलें, दर्द करें, छाले पड़ें, बुखार के साथ हों, या कुछ दिनों से अधिक रहें तो डॉक्टर को दिखाएँ। चेहरे या होंठों पर सूजन या साँस लेने में तकलीफ़ हो तो आपातकालीन सहायता लें।"
+    },
+    {
+      "id": "urinary-burning",
+      "title": "Burning while passing urine",
+      "source": "MedVani starter corpus (unreviewed)",
+      "keywords": ["burning urination", "burning while urinating", "urine infection", "urinary tract infection", "frequent urination"],
+      "en": "Burning while passing urine can be a urinary infection. Drink plenty of water and see a doctor, because it usually needs testing and proper treatment. Go sooner if there is fever, back or side pain, blood in the urine, or if you are pregnant.",
+      "hi": "पेशाब में जलन मूत्र संक्रमण का संकेत हो सकती है। खूब पानी पिएँ और डॉक्टर को दिखाएँ, क्योंकि आमतौर पर जाँच और सही इलाज की ज़रूरत होती है। बुखार, पीठ या बगल में दर्द, पेशाब में खून हो, या आप गर्भवती हों तो जल्दी दिखाएँ।"
+    },
+    {
+      "id": "when-to-see-doctor",
+      "title": "When to see a doctor",
+      "source": "MedVani starter corpus (unreviewed)",
+      "keywords": ["doctor", "hospital", "when to see a doctor", "serious", "worried", "not getting better", "worse"],
+      "en": "See a doctor if symptoms are severe, keep getting worse, do not improve in a few days, or if you are worried. Children under 2, pregnant women, older adults and people with long-term illnesses such as diabetes or heart disease should seek advice earlier.",
+      "hi": "यदि लक्षण गंभीर हों, बढ़ते जाएँ, कुछ दिनों में ठीक न हों, या आप चिंतित हों तो डॉक्टर को दिखाएँ। 2 साल से छोटे बच्चे, गर्भवती महिलाएँ, बुज़ुर्ग और मधुमेह या हृदय रोग जैसी पुरानी बीमारियों वाले लोग जल्दी सलाह लें।"
+    }
+  ]
+}
