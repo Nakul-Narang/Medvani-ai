@@ -1,0 +1,19 @@
+# Render Blueprint: New + > Blueprint, point at this repo.
+services:
+  - type: web
+    name: medvani-ai
+    runtime: docker
+    plan: free            # free instances sleep when idle; use "starter" for real traffic
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: MEDVANI_ENV
+        value: production
+      - key: MEDVANI_TRUST_PROXY
+        value: "true"
+      - key: MEDVANI_API_KEYS
+        sync: false       # set in the Render dashboard, never in git
+      - key: MEDVANI_CORS_ORIGINS
+        sync: false
+      - key: MEDVANI_TRANSLATOR
+        value: offline
