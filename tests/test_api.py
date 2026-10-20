@@ -30,6 +30,13 @@ class ApiTests(unittest.TestCase):
             self.assertEqual(ready["status"], "ready")
             self.assertGreater(ready["guidelines"], 5)
 
+    def test_home_page_is_served(self):
+        with self.client() as c:
+            r = c.get("/")
+            self.assertEqual(r.status_code, 200)
+            self.assertIn("MedVani AI", r.text)
+            self.assertIn("viewport", r.text)
+
     def test_consult_hindi(self):
         with self.client() as c:
             r = c.post("/api/v1/consult", json={"query": "मुझे तेज़ सिरदर्द और बुखार है"})

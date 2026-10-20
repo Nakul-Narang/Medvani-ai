@@ -6,11 +6,12 @@ import logging
 import time
 import uuid
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import FastAPI, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import FileResponse, JSONResponse
 
 from app.agents.graph import build_pipeline
 from app.agents.nodes import Services
@@ -23,6 +24,7 @@ from app.services.safety import SafetyService
 from app.services.translator import build_translator
 
 logger = logging.getLogger("medvani")
+STATIC_DIR = Path(__file__).parent / "static"
 
 
 def create_app(settings: Settings | None = None, services: Services | None = None) -> FastAPI:
@@ -120,6 +122,10 @@ def create_app(settings: Settings | None = None, services: Services | None = Non
                 "request_id": getattr(request.state, "request_id", None),
             },
         )
+
+    @app.get("/", include_in_schema=False)
+    def home() -> FileResponse:
+        return FileResponse(STATIC_DIR / "index.html", media_type="text/html")
 
     app.include_router(health.router)
     app.include_router(consult.router, prefix="/api/v1")

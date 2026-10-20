@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f766e">
+<title>MedVani AI</title>
+<style>
+  :root { --bg:#f6f8f8; --card:#fff; --text:#12201f; --muted:#5b6b6a; --brand:#0f766e; --danger:#b91c1c; --danger-bg:#fee2e2; --border:#d6e0df; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0e1514; --card:#162120; --text:#e6f0ef; --muted:#9db0ae; --brand:#2dd4bf; --danger:#fca5a5; --danger-bg:#3b1414; --border:#263634; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.5 system-ui,-apple-system,"Noto Sans Devanagari",Segoe UI,Roboto,sans-serif;
+         padding:env(safe-area-inset-top) 16px calc(16px + env(safe-area-inset-bottom)); }
+  main { max-width:640px; margin:0 auto; }
+  h1 { font-size:1.35rem; margin:18px 0 2px; }
+  .sub { color:var(--muted); margin:0 0 14px; font-size:.9rem; }
+  .notice { background:var(--card); border:1px solid var(--border); border-left:4px solid var(--brand); border-radius:10px; padding:10px 12px; font-size:.85rem; color:var(--muted); margin-bottom:14px; }
+  #log { display:flex; flex-direction:column; gap:10px; margin-bottom:14px; }
+  .msg { padding:10px 12px; border-radius:12px; white-space:pre-wrap; word-wrap:break-word; border:1px solid var(--border); background:var(--card); }
+  .msg.user { align-self:flex-end; background:var(--brand); color:#fff; border-color:transparent; max-width:90%; }
+  .msg.bot { align-self:stretch; }
+  .msg.emergency { background:var(--danger-bg); border-color:var(--danger); color:var(--danger); font-weight:600; }
+  .warn { font-size:.8rem; color:var(--muted); margin-top:6px; }
+  .src { font-size:.75rem; color:var(--muted); margin-top:6px; }
+  form { position:sticky; bottom:0; background:var(--bg); padding-top:8px; }
+  textarea { width:100%; min-height:84px; resize:vertical; padding:12px; font:inherit; border-radius:12px; border:1px solid var(--border); background:var(--card); color:var(--text); }
+  .row { display:flex; gap:8px; margin-top:8px; align-items:center; }
+  select, button { font:inherit; padding:12px 14px; border-radius:12px; border:1px solid var(--border); background:var(--card); color:var(--text); min-height:46px; }
+  button.primary { flex:1; background:var(--brand); color:#fff; border-color:transparent; font-weight:600; }
+  button:disabled { opacity:.6; }
+  #keyrow { display:none; margin-top:8px; }
+  #keyrow input { width:100%; padding:12px; border-radius:12px; border:1px solid var(--border); background:var(--card); color:var(--text); font:inherit; }
+</style>
+</head>
+<body>
+<main>
+  <h1>MedVani AI</h1>
+  <p class="sub">Describe your symptoms in Hindi or English</p>
+  <div class="notice">General health information only. Not a diagnosis or medical advice. In an emergency call <b>112</b> (India) or <b>108</b> (ambulance).</div>
+
+  <div id="log" aria-live="polite"></div>
+
+  <form id="form">
+    <textarea id="q" maxlength="1000" placeholder="e.g. मुझे दो दिन से तेज़ बुखार और सिरदर्द है" required></textarea>
+    <div id="keyrow"><input id="key" type="password" placeholder="Access key" autocomplete="off"></div>
+    <div class="row">
+      <select id="lang" aria-label="Language">
+        <option value="auto">Auto</option>
+        <option value="hi">हिन्दी</option>
+        <option value="en">English</option>
+      </select>
+      <button type="button" id="mic" title="Speak" hidden>🎤</button>
+      <button class="primary" id="send" type="submit">Send</button>
+    </div>
+  </form>
+</main>
+
+<script>
+(function () {
+  var log = document.getElementById("log"), q = document.getElementById("q"), send = document.getElementById("send");
+  var lang = document.getElementById("lang"), keyrow = document.getElementById("keyrow"), keyInput = document.getElementById("key");
+  var mic = document.getElementById("mic");
+  var history = [];
+
+  function store(get, k, v) { try { return get ? sessionStorage.getItem(k) : sessionStorage.setItem(k, v); } catch (e) { return null; } }
+  keyInput.value = store(true, "mv_key") || "";
+
+  function add(text, cls, extra) {
+    var d = document.createElement("div");
+    d.className = "msg " + cls;
+    d.textContent = text;
+    if (extra) extra.forEach(function (t) { var s = document.createElement("div"); s.className = t.cls; s.textContent = t.text; d.appendChild(s); });
+    log.appendChild(d);
+    d.scrollIntoView({ behavior: "smooth", block: "end" });
+    return d;
+  }
+
+  document.getElementById("form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var text = q.value.trim();
+    if (!text) return;
+    add(text, "user");
+    q.value = "";
+    send.disabled = true;
+    var pending = add("…", "bot");
+    var headers = { "Content-Type": "application/json" };
+    if (keyInput.value) { headers["X-API-Key"] = keyInput.value; store(false, "mv_key", keyInput.value); }
+
+    fetch("/api/v1/consult", { method: "POST", headers: headers, body: JSON.stringify({ query: text, language: lang.value, history: history }) })
+      .then(function (r) {
+        if (r.status === 401) { keyrow.style.display = "block"; throw new Error("Access key required. Enter it below and send again."); }
+        if (r.status === 429) throw new Error("Too many requests. Please wait a minute and try again.");
+        if (!r.ok) throw new Error("Something went wrong. If this is an emergency, call 112.");
+        return r.json();
+      })
+      .then(function (data) {
+        pending.remove();
+        history = data.history;
+        var extra = [];
+        data.warnings.forEach(function (w) { extra.push({ cls: "warn", text: w }); });
+        if (data.sources.length) extra.push({ cls: "src", text: "Sources: " + data.sources.map(function (s) { return s.title; }).join(" · ") });
+        add(data.answer, "bot" + (data.emergency ? " emergency" : ""), extra);
+      })
+      .catch(function (err) { pending.remove(); add(err.message || "Network error. If this is an emergency, call 112.", "bot"); })
+      .finally(function () { send.disabled = false; q.focus(); });
+  });
+
+  // Voice input where the browser supports it (Chrome on Android does).
+  var SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (SR) {
+    mic.hidden = false;
+    mic.addEventListener("click", function () {
+      var rec = new SR();
+      rec.lang = lang.value === "en" ? "en-IN" : "hi-IN";
+      rec.onresult = function (ev) { q.value = (q.value + " " + ev.results[0][0].transcript).trim(); };
+      rec.start();
+    });
+  }
+})();
+</script>
+</body>
+</html>

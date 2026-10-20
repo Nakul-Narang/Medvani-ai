@@ -108,6 +108,14 @@ pip install -r requirements.txt
 uvicorn app.main:app --host 0.0.0.0 --port 8000
 ```
 
+## Use it on your phone
+
+The app serves a mobile-friendly page at `/` (Hindi/English, voice input on Chrome for Android, dark mode, emergency banner).
+
+- **Deployed:** open your Render/Fly URL in the phone browser, then *Add to Home screen*. If `MEDVANI_API_KEYS` is set, the page asks for the key once per session.
+- **Offline on the phone (Termux):** run the Termux steps above, then open `http://localhost:8000` in Chrome on the same phone.
+- **Phone as a client of your laptop:** run `uvicorn app.main:app --host 0.0.0.0` and open `http://<laptop-ip>:8000` on the same Wi-Fi.
+
 ## Configuration
 
 All settings are environment variables; see [`.env.example`](.env.example). The important ones:
